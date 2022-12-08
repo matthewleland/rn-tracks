@@ -1,16 +1,20 @@
 import React, { useContext } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import { Text } from 'react-native-elements'
 import { Button } from 'react-native-elements'
 import { SafeAreaView } from 'react-navigation'
 import Spacer from '../components/Spacer'
 import { Context as AuthContext } from '../context/AuthContext'
+import { FontAwesome } from '@expo/vector-icons'
 
 const AccountScreen = () => {
   const { signout } = useContext(AuthContext)
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text>AccountScreen</Text>
+      <Spacer>
+        <Text h2>Account</Text>
+      </Spacer>
       <Spacer>
         <Button
           title='Sign Out'
@@ -19,6 +23,16 @@ const AccountScreen = () => {
       </Spacer>
     </SafeAreaView>
   )
+}
+
+AccountScreen.navigationOptions = {
+  title: 'User',
+  tabBarIcon: (
+    <FontAwesome
+      name='gear'
+      size={20}
+    />
+  ),
 }
 
 const styles = StyleSheet.create({})
